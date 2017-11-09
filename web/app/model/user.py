@@ -1,4 +1,4 @@
-#app/model/user.py
+# app/model/user.py
 
 class User(object):
     def __init__(self, username, password, email):

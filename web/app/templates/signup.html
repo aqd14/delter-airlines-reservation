@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="valign-wrapper2">
+    <div class="container expand-on-small-only">
+        <div class="row valign change-form">
+            <div class="col s12 m8 offset-m2 l8 offset-l2">
+                <div class="card">
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        <div class="card-content">
+                            <span class="card-title grey-text text-darken-2">Registration form</span>
+                            <!-- <input type='hidden' name='csrfmiddlewaretoken' value='9zyBRkajzdEP2FwJUxUBnENann79CutiX6uIRHbTlkr5FJVvZdRcfFQdLm4kRuIq' /> -->
+                            <div class="row">
+                                <div class="input-field col s12 required" id="id_username_container">
+                                    <i class="material-icons prefix">account_box</i>
+                                    <input id="id_username" name="username" type="text">
+                                    <label for="id_username">Username</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12 required" id="id_email_container">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="id_email" name="email" type="email">
+                                    <label for="id_email">Email Address</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="layout-row row">
+                            	<div class="col s12 m6">
+	                                <div class="row">
+	                                    <div class="input-field col s12 required" id="id_password_container">
+	                                        <i class="material-icons prefix">lock_open</i>
+	                                        <input id="id_password" name="password" type="password">
+	                                        <label for="id_password">Password</label>
+	                                    </div>
+	                                </div>
+                            	</div>
+                            	<div class="col s12 m6">
+		                            <div class="row">
+		                                <div class="input-field col s12 required" id="id_password_confirm_container">
+		                                    <input id="id_password_confirm" name="password_confirm" type="password">
+		                                    <label for="id_password_confirm">Confirm password</label>
+		                                </div>
+	                            	</div>
+                        		</div>
+                   		 	</div>
+
+                        <div class="section row">
+                            <div class="col s12">
+                                <h5>Pesonal details</h5>
+
+                                <div class="layout-row row"><div class="col s12 m6">
+
+                                    <div class="row">
+                                        <div class="input-field col s12" id="id_first_name_container">
+                                            <input id="id_first_name" name="first_name" type="text">
+                                            <label for="id_first_name">First name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                <div class="row">
+                                    <div class="input-field col s12" id="id_last_name_container">
+                                        <input id="id_last_name" name="last_name" type="text">
+                                        <label for="id_last_name">Last name</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <!-- <div class="row">
+                                <div class="select-field col s12 required" id="id_gender_container">
+                                    <label for="id_gender">Gender</label>
+                                    <select id="id_gender" name="gender">
+                                        <option value></option>
+                                        <option value="F">Female</option>
+                                        <option value="M">Male</option>
+                                        <option value="O">Other</option>
+                                    </select>
+
+                                </div>
+                            </div> -->
+
+                            <div class="row">
+                                <div class="checkbox-field col s12 required" id="id_agree_toc_container">
+                                    <input class="filled-in " id="id_agree_toc" name="agree_toc" type="checkbox">
+                                    <label for="id_agree_toc">I agree with the Terms and Conditions</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <div class="right-align">
+                        <button class="waves-effect waves-light btn" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+{% endblock %}

@@ -1,7 +1,9 @@
 #!flask/bin/python
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
+from flask_restful import Api, Resource
 
 app = Flask(__name__)
+api = Api(app, prefix="/api/v1.0")
 
 tasks = [
     {
@@ -18,9 +20,12 @@ tasks = [
     }
 ]
 
-@app.route('/todo/api/v1.0/tasks', methods=['GET'])
-def get_tasks():
-    return jsonify({'tasks': tasks})
+
+class Task(Resource):
+    def get(self):
+        return jsonify({'tasks': tasks})
+
+api.add_resource(Task, '/tasks')
 
 if __name__ == '__main__':
     app.run(debug=True)
