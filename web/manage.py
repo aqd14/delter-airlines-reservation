@@ -1,12 +1,15 @@
 # manage.py
 
-import os
-
-from flask_migrate import Migrate
+from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
+from app import app, db
 
-from web.app import db, create_app
-
-app = create_app(config_name=os.getenv('APP_SETTINGS'))
 migrate = Migrate(app, db)
+
 manager = Manager(app)
+manager.add_command('db', MigrateCommand)
+
+
+from app.models import *
+if __name__ == '__main__':
+    manager.run()
