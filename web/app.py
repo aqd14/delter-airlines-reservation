@@ -1,31 +1,14 @@
 #!flask/bin/python
-from flask import Flask, jsonify, render_template
 from flask_restful import Api, Resource
+from app import app
 
-app = Flask(__name__)
+from app.views import FlightAPI, FlightSearchAPI
+# from instance.db_create import initialize_db
+
 api = Api(app, prefix="/api/v1.0")
-
-tasks = [
-    {
-        'id': 1,
-        'title': u'Buy groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
-        'done': False
-    },
-    {
-        'id': 2,
-        'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web', 
-        'done': False
-    }
-]
-
-
-class Task(Resource):
-    def get(self):
-        return jsonify({'tasks': tasks})
-
-api.add_resource(Task, '/tasks')
+api.add_resource(FlightAPI, '/flights')
+api.add_resource(FlightSearchAPI, '/Flight-Search')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # initialize_db()
+    app.run(debug=True, host="0.0.0.0")
